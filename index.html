@@ -3,544 +3,357 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>فاحص السيرة الذاتية الذكي | ندى موسى</title>
-<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+<title>ندى موسى | استشارية موارد بشرية ومدربة مسار مهني</title>
+<meta name="description" content="إعادة تموضع مهني كاملة للسوق الخليجي: سيرة ذاتية ATS + إعادة بناء LinkedIn + كوتشينغ. +25% معدل مقابلات.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --deep:#150B2E; --deep2:#1E1240; --violet:#2B1A56;
-  --amber:#FFB84D; --coral:#FF5E7A; --aqua:#2DD4BF; --lilac:#B79CFF;
-  --sand:#FBF4E9; --muted:#A79CC8;
-  --grad:linear-gradient(120deg,var(--amber),var(--coral) 45%,var(--lilac));
-  --radius:20px;
+  --night:#131A2E;
+  --night-deep:#0C1122;
+  --gold:#D9A441;
+  --gold-soft:#E8C57E;
+  --sand:#F5EFE3;
+  --oasis:#3E8E8C;
+  --ink:#1E2438;
+  --muted:#8B93A8;
+  --radius:14px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Almarai',sans-serif;color:var(--sand);line-height:1.85;min-height:100vh;background:var(--deep);position:relative;overflow-x:hidden}
-h1,h2,h3{font-family:'Lalezar',cursive;font-weight:400;letter-spacing:.3px}
-.wrap{max-width:880px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+html{scroll-behavior:smooth}
+body{font-family:'Almarai',sans-serif;background:var(--night);color:var(--sand);line-height:1.8;font-size:17px}
+h1,h2,h3,.kufi{font-family:'Reem Kufi',sans-serif}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
-/* ===== Aurora background ===== */
-body::before,body::after{content:"";position:fixed;inset:-20%;z-index:0;pointer-events:none}
-body::before{
-  background:
-    radial-gradient(38% 30% at 78% 12%,rgba(255,184,77,.20),transparent 70%),
-    radial-gradient(34% 28% at 15% 25%,rgba(255,94,122,.16),transparent 70%),
-    radial-gradient(40% 34% at 55% 88%,rgba(45,212,191,.13),transparent 70%),
-    radial-gradient(30% 26% at 90% 70%,rgba(183,156,255,.14),transparent 70%);
-  animation:drift 26s ease-in-out infinite alternate;
-  filter:blur(10px);
-}
-body::after{
-  background-image:repeating-linear-gradient(45deg,rgba(255,184,77,.05) 0 1px,transparent 1px 34px),repeating-linear-gradient(-45deg,rgba(255,184,77,.05) 0 1px,transparent 1px 34px);
-  z-index:1;
-}
-@keyframes drift{from{transform:translate3d(-2%,-1%,0) scale(1)}to{transform:translate3d(2%,2%,0) scale(1.06)}}
+/* ── Nubian pyramid divider ── */
+.pyr{display:block;width:100%;height:46px}
+.pyr path{fill:var(--night)}
+.pyr.to-sand path{fill:var(--sand)}
 
-/* ===== Header ===== */
-header{padding:56px 0 20px;text-align:center;position:relative;z-index:2}
-.brand{display:inline-flex;align-items:center;gap:10px;font-size:.82rem;letter-spacing:1px;color:var(--amber);border:1px solid rgba(255,184,77,.35);background:rgba(255,184,77,.07);padding:7px 20px;border-radius:999px;font-weight:800}
-.brand::before{content:"✦"}
-header h1{font-size:clamp(2.1rem,6vw,3.4rem);margin:18px 0 4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 24px rgba(255,143,100,.25))}
-header p{color:var(--muted);font-weight:300;font-size:.98rem;max-width:52ch;margin:0 auto}
+/* ── Nav ── */
+nav{position:sticky;top:0;z-index:50;background:rgba(12,17,34,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(217,164,65,.18)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Reem Kufi';font-size:1.35rem;font-weight:700;color:var(--gold)}
+.logo span{color:var(--sand);font-weight:400}
+nav ul{display:flex;gap:26px;list-style:none}
+nav ul a{text-decoration:none;font-size:.92rem;color:var(--sand);opacity:.85;transition:.2s}
+nav ul a:hover,nav ul a:focus-visible{color:var(--gold);opacity:1}
+.nav-cta{background:var(--gold);color:var(--night-deep)!important;padding:8px 18px;border-radius:999px;font-weight:700;opacity:1!important}
+@media(max-width:760px){nav ul{display:none}}
 
-/* ===== Scanner signature ===== */
-.scanline{position:relative;width:min(320px,70%);height:4px;margin:26px auto 6px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
-.scanline::before{content:"";position:absolute;top:0;bottom:0;width:38%;border-radius:99px;background:var(--grad);animation:scan 2.6s cubic-bezier(.45,0,.55,1) infinite alternate;box-shadow:0 0 18px rgba(255,140,110,.55)}
-@keyframes scan{from{left:0}to{left:62%}}
+/* ── Hero ── */
+.hero{position:relative;padding:90px 0 70px;overflow:hidden;background:
+ radial-gradient(1200px 500px at 80% -10%,rgba(217,164,65,.14),transparent 60%),
+ radial-gradient(800px 400px at 10% 110%,rgba(62,142,140,.12),transparent 60%),
+ var(--night-deep)}
+.hero::before{content:"";position:absolute;inset:0;opacity:.05;
+ background-image:repeating-linear-gradient(45deg,var(--gold) 0 1px,transparent 1px 26px),
+                  repeating-linear-gradient(-45deg,var(--gold) 0 1px,transparent 1px 26px)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;letter-spacing:.5px;color:var(--gold);border:1px solid rgba(217,164,65,.4);padding:6px 16px;border-radius:999px;margin-bottom:22px}
+.eyebrow::before{content:"◆";font-size:.6rem}
+.hero h1{font-size:clamp(2rem,4.6vw,3.3rem);font-weight:700;line-height:1.35;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.lead{font-size:1.08rem;color:#C7CDDD;max-width:34ch;margin-bottom:32px;font-weight:300}
+.btn{display:inline-block;text-decoration:none;font-weight:800;border-radius:999px;padding:14px 34px;transition:.2s;font-size:1rem}
+.btn-gold{background:var(--gold);color:var(--night-deep)}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid rgba(245,239,227,.35);color:var(--sand);margin-inline-start:12px}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-card{background:linear-gradient(160deg,rgba(217,164,65,.12),rgba(62,142,140,.08));border:1px solid rgba(217,164,65,.28);border-radius:var(--radius);padding:30px;text-align:center}
+.hero-card .big{font-family:'Reem Kufi';font-size:3.4rem;font-weight:700;color:var(--gold);line-height:1.1}
+.hero-card .lbl{color:#C7CDDD;font-size:.95rem;margin-top:4px}
+.hero-card hr{border:0;border-top:1px dashed rgba(217,164,65,.3);margin:20px 0}
+.hero-mini{display:flex;justify-content:space-around;gap:8px}
+.hero-mini div b{display:block;font-family:'Reem Kufi';font-size:1.5rem;color:var(--sand)}
+.hero-mini div span{font-size:.78rem;color:var(--muted)}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.btn-ghost{margin-inline-start:0;margin-top:10px}}
 
-/* ===== Tabs ===== */
-.tabs{display:flex;gap:10px;justify-content:center;margin:30px 0 24px;position:relative;z-index:2}
-.tab{background:rgba(255,255,255,.04);border:1px solid rgba(183,156,255,.25);color:var(--sand);padding:12px 30px;border-radius:16px;cursor:pointer;font-family:'Almarai';font-weight:800;font-size:.95rem;transition:.25s;backdrop-filter:blur(8px)}
-.tab:hover{transform:translateY(-2px);border-color:var(--amber)}
-.tab.active{background:var(--grad);color:var(--deep);border-color:transparent;box-shadow:0 8px 26px rgba(255,120,110,.35)}
-.panel{display:none}.panel.active{display:block;animation:rise .45s ease}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* ── Trust strip ── */
+.trust{background:var(--night);padding:26px 0;border-block:1px solid rgba(217,164,65,.14)}
+.trust .wrap{display:flex;flex-wrap:wrap;gap:16px 36px;justify-content:center;align-items:center;font-size:.88rem;color:var(--muted)}
+.trust b{color:var(--gold-soft);font-weight:700}
 
-/* ===== Cards (glass + gradient edge) ===== */
-.card{position:relative;background:rgba(30,18,64,.55);backdrop-filter:blur(14px);border-radius:var(--radius);padding:30px;margin-bottom:20px;border:1px solid transparent;background-clip:padding-box}
-.card::before{content:"";position:absolute;inset:0;border-radius:var(--radius);padding:1.2px;background:linear-gradient(140deg,rgba(255,184,77,.55),rgba(255,94,122,.25) 40%,rgba(45,212,191,.3) 75%,rgba(183,156,255,.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-label{display:block;font-weight:800;font-size:.9rem;margin-bottom:8px;color:var(--amber)}
-textarea,input[type=text],select{width:100%;background:rgba(21,11,46,.75);border:1px solid rgba(183,156,255,.3);border-radius:14px;color:var(--sand);padding:15px;font-family:'Almarai';font-size:.93rem;resize:vertical;transition:.2s}
-textarea:focus,input:focus,select:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(255,184,77,.18)}
-textarea{min-height:210px}
-select{appearance:none;cursor:pointer}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:640px){.row{grid-template-columns:1fr}}
-.hint{font-size:.78rem;color:var(--muted);margin-top:6px;font-weight:300}
-details summary{cursor:pointer;font-size:.87rem;color:var(--lilac);font-weight:700;margin-top:4px}
-.btn{display:inline-block;position:relative;background:var(--grad);color:var(--deep);border:0;border-radius:16px;padding:15px 44px;font-family:'Almarai';font-weight:800;font-size:1.05rem;cursor:pointer;transition:.25s;margin-top:18px;box-shadow:0 10px 30px rgba(255,120,110,.3)}
-.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 40px rgba(255,120,110,.45)}
-.btn:disabled{opacity:.5;cursor:wait;transform:none}
-.filebox{border:2px dashed rgba(183,156,255,.45);border-radius:16px;padding:20px;text-align:center;font-size:.9rem;color:var(--muted);cursor:pointer;transition:.25s;margin-bottom:14px;background:rgba(183,156,255,.04)}
-.filebox:hover{border-color:var(--amber);color:var(--amber);background:rgba(255,184,77,.06)}
-.filebox.hasfile{border-style:solid;border-color:var(--aqua);color:var(--aqua);background:rgba(45,212,191,.07)}
+/* ── Sections ── */
+section{padding:80px 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 54px}
+.sec-head .tag{color:var(--oasis);font-weight:800;font-size:.85rem;letter-spacing:1px}
+.sand .sec-head .tag{color:#2C6B69}
+.sec-head h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin:10px 0 14px}
+.sec-head p{color:var(--muted);font-weight:300}
 
-/* ===== Loading ===== */
-.loading{text-align:center;padding:46px 0;display:none;position:relative;z-index:2}
-.orb{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:conic-gradient(var(--amber),var(--coral),var(--lilac),var(--aqua),var(--amber));animation:sp 1.4s linear infinite;position:relative;filter:drop-shadow(0 0 22px rgba(255,140,110,.5))}
-.orb::after{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--deep)}
-@keyframes sp{to{transform:rotate(360deg)}}
-.loading p{color:var(--muted);font-size:.92rem}
+/* ── Premium package (signature section, on sand) ── */
+.sand{background:var(--sand);color:var(--ink)}
+.sand .sec-head p{color:#5A617A}
+.pkg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tier{background:#fff;border:1px solid #E3DCCB;border-radius:var(--radius);padding:34px 28px;position:relative;display:flex;flex-direction:column;transition:.25s}
+.tier:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(19,26,46,.12)}
+.tier h3{font-size:1.3rem;margin-bottom:4px}
+.tier .price{font-family:'Reem Kufi';font-size:2.3rem;font-weight:700;color:var(--night);margin:10px 0 2px}
+.tier .price small{font-size:1rem;color:#8B93A8;font-weight:400}
+.tier .for{font-size:.85rem;color:#7A8098;margin-bottom:18px}
+.tier ul{list-style:none;flex:1;margin-bottom:24px}
+.tier li{padding:9px 26px 9px 0;position:relative;font-size:.94rem;border-bottom:1px dashed #EEE8D8}
+.tier li::before{content:"✦";position:absolute;right:0;color:var(--gold);font-size:.8rem;top:11px}
+.tier .btn{text-align:center}
+.tier.featured{background:var(--night-deep);color:var(--sand);border:1.5px solid var(--gold);transform:scale(1.04)}
+.tier.featured:hover{transform:scale(1.04) translateY(-6px)}
+.tier.featured .price{color:var(--gold)}
+.tier.featured li{border-color:rgba(217,164,65,.2)}
+.tier.featured .for{color:var(--muted)}
+.ribbon{position:absolute;top:-14px;right:50%;transform:translateX(50%);background:var(--gold);color:var(--night-deep);font-weight:800;font-size:.78rem;padding:5px 18px;border-radius:999px;white-space:nowrap}
+.tier .btn-outline{border:1.5px solid var(--night);color:var(--night);font-weight:800}
+.tier .btn-outline:hover{background:var(--night);color:var(--sand)}
+@media(max-width:900px){.pkg{grid-template-columns:1fr}.tier.featured{transform:none}.tier.featured:hover{transform:translateY(-6px)}}
 
-/* ===== Results ===== */
-#results{display:none;position:relative;z-index:2}
-.score-hero{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
-@media(max-width:640px){.score-hero{grid-template-columns:1fr;text-align:center}}
-.gauge{position:relative;width:160px;height:160px;margin:0 auto}
-.gauge svg{transform:rotate(-90deg)}
-.gauge .num{position:absolute;inset:0;display:grid;place-items:center;font-family:'Lalezar';font-size:2.9rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.gauge .num small{font-size:.85rem;color:var(--muted);-webkit-text-fill-color:var(--muted)}
-.verdict h2{font-size:1.6rem;margin-bottom:4px;color:var(--sand)}
-.verdict p{color:var(--muted);font-weight:300;font-size:.93rem}
-.bars{margin-top:14px}
-.bar{margin-bottom:15px}
-.bar .t{display:flex;justify-content:space-between;font-size:.86rem;margin-bottom:6px}
-.bar .t b{color:var(--sand)}
-.bar .t span{font-family:'Lalezar';font-size:1.05rem;color:var(--amber)}
-.bar .track{height:10px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden}
-.bar .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--aqua),var(--amber));transition:width 1s cubic-bezier(.3,.9,.4,1);box-shadow:0 0 12px rgba(255,184,77,.4)}
-.bar .fill.low{background:linear-gradient(90deg,#C2405F,var(--coral))}
-.bar .fill.mid{background:linear-gradient(90deg,var(--coral),var(--amber))}
-.list{list-style:none}
-.list li{padding:11px 32px 11px 0;position:relative;font-size:.91rem;border-bottom:1px dashed rgba(183,156,255,.18)}
-.list li:last-child{border:0}
-.list.good li::before{content:"✓";position:absolute;right:0;top:11px;color:var(--aqua);font-weight:800}
-.list.bad li::before{content:"✕";position:absolute;right:0;top:11px;color:var(--coral);font-weight:800}
-.list.fix li::before{content:"✦";position:absolute;right:0;top:11px;color:var(--amber);font-size:.85rem}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:640px){.grid2{grid-template-columns:1fr}}
-.card h3{font-size:1.25rem;margin-bottom:12px;color:var(--amber)}
-.rewrite{background:rgba(21,11,46,.7);border-radius:14px;padding:16px;margin-top:12px;font-size:.89rem;border-right:3px solid var(--amber)}
-.rewrite .before{color:var(--coral);text-decoration:line-through;opacity:.85;display:block;margin-bottom:8px}
-.rewrite .after{color:var(--aqua);display:block}
-.upsell{text-align:center;overflow:hidden}
-.upsell::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 100% at 50% 120%,rgba(255,140,110,.18),transparent 70%);pointer-events:none;border-radius:var(--radius)}
-.upsell h3{font-size:1.5rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.upsell p{font-size:.92rem;color:var(--muted);font-weight:300;margin:8px 0 4px;position:relative;z-index:1}
-.upsell a{display:inline-block;background:var(--grad);color:var(--deep);text-decoration:none;font-weight:800;border-radius:16px;padding:13px 36px;margin-top:14px;position:relative;z-index:1;box-shadow:0 10px 30px rgba(255,120,110,.35);transition:.25s}
-.upsell a:hover{transform:translateY(-3px)}
-.err{background:rgba(255,94,122,.12);border:1px solid var(--coral);border-radius:14px;padding:14px;font-size:.88rem;display:none;margin-top:14px}
-.credit-badge{display:inline-flex;gap:8px;align-items:center;font-size:.85rem;border:1px solid rgba(45,212,191,.4);color:var(--aqua);background:rgba(45,212,191,.07);padding:7px 18px;border-radius:999px;font-weight:800}
-.fixbtn{background:rgba(255,184,77,.12);border:1px solid var(--amber);color:var(--amber);border-radius:10px;padding:4px 12px;font-family:'Almarai';font-weight:800;font-size:.76rem;cursor:pointer;margin-inline-start:8px;transition:.2s}
-.fixbtn:hover{background:var(--amber);color:var(--deep)}
-.fixbtn:disabled{opacity:.4;cursor:not-allowed}
-footer{text-align:center;padding:36px 0;color:var(--muted);font-size:.8rem;font-weight:300;position:relative;z-index:2}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}body::before{animation:none}}
-:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+/* ── Journey ── */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}
+.step{background:rgba(245,239,227,.04);border:1px solid rgba(217,164,65,.16);border-radius:var(--radius);padding:26px 22px}
+.step::before{counter-increment:step;content:counter(step,arabic-indic);display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--gold);color:var(--night-deep);font-family:'Reem Kufi';font-weight:700;font-size:1.3rem;margin-bottom:14px}
+.step h3{font-size:1.05rem;margin-bottom:8px;color:var(--gold-soft)}
+.step p{font-size:.88rem;color:var(--muted);font-weight:300}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
 
+/* ── Services grid ── */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc .card{background:#fff;border:1px solid #E3DCCB;border-radius:var(--radius);padding:28px;transition:.2s}
+.svc .card:hover{border-color:var(--gold);box-shadow:0 12px 28px rgba(19,26,46,.08)}
+.svc .ic{font-size:1.8rem;margin-bottom:12px}
+.svc h3{font-size:1.08rem;margin-bottom:8px}
+.svc p{font-size:.9rem;color:#5A617A;font-weight:300}
+@media(max-width:820px){.svc{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.svc{grid-template-columns:1fr}}
+
+/* ── About ── */
+.about .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:center}
+.about-visual{aspect-ratio:4/5;border-radius:var(--radius);background:
+ linear-gradient(160deg,rgba(217,164,65,.25),rgba(62,142,140,.2)),
+ repeating-linear-gradient(45deg,rgba(217,164,65,.15) 0 2px,transparent 2px 30px);
+ border:1px solid rgba(217,164,65,.3);display:grid;place-items:center;font-family:'Reem Kufi';font-size:5rem;color:var(--gold)}
+.about h2{font-size:2rem;margin-bottom:16px}
+.about p{color:#C7CDDD;font-weight:300;margin-bottom:14px}
+.about .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.about .badges span{font-size:.8rem;border:1px solid rgba(217,164,65,.35);color:var(--gold-soft);padding:6px 14px;border-radius:999px}
+@media(max-width:820px){.about .wrap{grid-template-columns:1fr}.about-visual{max-width:300px;margin:0 auto}}
+
+/* ── Testimonials ── */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.q{background:#fff;border-radius:var(--radius);border:1px solid #E3DCCB;padding:28px;font-size:.93rem;color:#3A4158}
+.q::before{content:"❝";font-size:2rem;color:var(--gold);display:block;line-height:1;margin-bottom:10px}
+.q footer{margin-top:16px;font-weight:800;color:var(--ink);font-size:.85rem}
+.q footer span{display:block;font-weight:400;color:#8B93A8}
+@media(max-width:820px){.quotes{grid-template-columns:1fr}}
+
+/* ── CTA ── */
+.cta{background:
+ radial-gradient(900px 400px at 50% 120%,rgba(217,164,65,.2),transparent 65%),var(--night-deep);
+ text-align:center;padding:100px 0}
+.cta h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin-bottom:14px}
+.cta h2 em{font-style:normal;color:var(--gold)}
+.cta p{color:var(--muted);max-width:46ch;margin:0 auto 34px;font-weight:300}
+
+/* ── Footer ── */
+footer.site{background:var(--night-deep);border-top:1px solid rgba(217,164,65,.15);padding:36px 0;font-size:.85rem;color:var(--muted)}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+footer.site a{color:var(--gold-soft);text-decoration:none}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="brand">ندى موسى | HR Consultant & Career Coach</div>
-  <h1>فاحص السيرة الذاتية الذكي</h1>
-  <p>فحص بمعايير ATS العالمية + معايير بلد التقديم (الخليج / أمريكا / بريطانيا / أستراليا) — مبني على خبرة 1500+ سيرة ذاتية</p>
-  <div class="scanline" aria-hidden="true"></div>
-  <div id="loginBar" style="margin-top:18px;display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap">
-    <input type="email" id="userEmail" placeholder="بريدك الإلكتروني للدخول" dir="ltr" style="max-width:260px;text-align:left;padding:11px 14px">
-    <button class="btn" id="loginBtn" style="margin-top:0;padding:11px 26px;font-size:.92rem">دخول</button>
+<nav>
+  <div class="wrap">
+    <div class="logo">ندى موسى <span>| Career Coach</span></div>
+    <ul>
+      <li><a href="/checker.html">🔍 افحصي سيرتك مجاناً</a></li>
+      <li><a href="#premium">الباقات</a></li>
+      <li><a href="#journey">رحلة العميل</a></li>
+      <li><a href="#services">الخدمات</a></li>
+      <li><a href="#about">من أنا</a></li>
+      <li><a class="nav-cta" href="#contact">احجزي استشارة</a></li>
+    </ul>
   </div>
-  <div id="creditBadge" style="display:none;margin-top:14px"></div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">استشارية موارد بشرية ومدربة مسار مهني — السوق الخليجي</span>
+      <h1>سيرتك الذاتية تصل…<br>لكن <em>تموضعك المهني</em> هو ما يفتح الباب</h1>
+      <p class="lead">إعادة بناء كاملة لحضورك المهني: سيرة ذاتية تجتاز أنظمة ATS، وملف LinkedIn يجذب مسؤولي التوظيف، وخطة تحرك واضحة — خلال 14 يوماً.</p>
+      <a class="btn btn-gold" href="#premium">اكتشفي باقة إعادة التموضع</a>
+      <a class="btn btn-ghost" href="/checker.html">افحصي سيرتك مجاناً الآن</a>
+    </div>
+    <aside class="hero-card" aria-label="نتائج">
+      <div class="big">1500+</div>
+      <div class="lbl">سيرة ذاتية احترافية خلال 3 سنوات</div>
+      <hr>
+      <div class="hero-mini">
+        <div><b>500+</b><span>ملف LinkedIn</span></div>
+        <div><b>10+</b><span>سنوات خبرة HR</span></div>
+        <div><b>75%</b><span>توظيف خلال 90 يوماً</span></div>
+      </div>
+    </aside>
+  </div>
 </header>
 
-<div class="wrap">
-  <div class="tabs" role="tablist">
-    <button class="tab active" data-t="resume" role="tab">فحص السيرة الذاتية</button>
-    <button class="tab" data-t="linkedin" role="tab">فحص LinkedIn</button>
-  </div>
-
-  <!-- RESUME PANEL -->
-  <div class="panel active" id="p-resume">
-    <div class="card">
-      <div class="filebox" id="filebox" tabindex="0">📄 ارفعي ملف PDF أو Word (docx) — أو الصقي النص في الأسفل<input type="file" id="pdfInput" accept=".pdf,.docx" hidden></div>
-      <label for="resumeText">نص السيرة الذاتية</label>
-      <textarea id="resumeText" placeholder="الصقي محتوى سيرتك الذاتية هنا (عربي أو إنجليزي)…"></textarea>
-      <div class="row" style="margin-top:14px">
-        <div>
-          <label for="targetRole">الوظيفة المستهدفة (اختياري)</label>
-          <input type="text" id="targetRole" placeholder="مثال: HR Manager">
-        </div>
-        <div>
-          <label for="targetCountry">بلد التقديم — يغيّر معايير الفحص</label>
-          <select id="targetCountry">
-            <option value="gcc">الخليج العربي (السعودية / الإمارات / قطر…)</option>
-            <option value="usa">الولايات المتحدة وكندا</option>
-            <option value="uk">بريطانيا وأيرلندا</option>
-            <option value="aus">أستراليا ونيوزيلندا</option>
-            <option value="remote">وظائف عن بُعد — شركات دولية</option>
-          </select>
-        </div>
-      </div>
-      <label for="jobDesc" style="margin-top:16px">إعلان الوظيفة (اختياري — لكن يرفع دقة الفحص كثيراً)</label>
-      <textarea id="jobDesc" style="min-height:130px" placeholder="الصقي نص إعلان الوظيفة هنا لحساب نسبة المطابقة والكلمات المفقودة…"></textarea>
-      <button class="btn" id="analyzeResume">حللي سيرتي الآن</button>
-      <div class="err" id="errResume"></div>
-    </div>
-  </div>
-
-  <!-- LINKEDIN PANEL -->
-  <div class="panel" id="p-linkedin">
-    <div class="card">
-      <label for="liUrl">رابط ملفك على LinkedIn — الفحص المباشر</label>
-      <input type="text" id="liUrl" placeholder="https://www.linkedin.com/in/username" dir="ltr" style="text-align:left">
-      <div class="hint">إن كان ملفك غير عام بالكامل قد يتعذر الوصول المباشر — استخدمي رفع PDF بالأسفل (الأدق والأسرع)</div>
-      <div class="filebox" id="liFilebox" tabindex="0" style="margin-top:16px">📄 الأدق: من LinkedIn اضغطي More ← Save to PDF وارفعيه هنا — يُقبل أيضاً ملف Word<input type="file" id="liPdfInput" accept=".pdf,.docx" hidden></div>
-      <details style="margin-top:6px">
-        <summary style="cursor:pointer;font-size:.85rem;color:var(--gold-soft)">أو الصقي الأقسام يدوياً</summary>
-        <label for="liHeadline" style="margin-top:12px">العنوان المهني (Headline)</label>
-        <input type="text" id="liHeadline" placeholder="الصقي عنوانك الحالي…">
-        <label for="liAbout" style="margin-top:12px">النبذة (About)</label>
-        <textarea id="liAbout" style="min-height:140px" placeholder="الصقي نبذتك الحالية…"></textarea>
-      </details>
-      <label for="liRole" style="margin-top:16px">مجالك / وظيفتك المستهدفة (اختياري)</label>
-      <input type="text" id="liRole" placeholder="مثال: Project Manager — قطاع الإنشاءات">
-      <button class="btn" id="analyzeLI">حللي ملفي الآن</button>
-      <div class="err" id="errLI"></div>
-    </div>
-  </div>
-
-  <div class="loading" id="loading">
-    <div class="orb"></div>
-    <p id="loadmsg">جاري التحليل بمعايير ATS والسوق الخليجي…</p>
-  </div>
-
-  <!-- RESULTS -->
-  <div id="results">
-    <div class="card score-hero">
-      <div class="gauge">
-        <svg width="150" height="150" viewBox="0 0 150 150">
-          <circle cx="75" cy="75" r="64" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="12"/>
-          <circle id="gaugeArc" cx="75" cy="75" r="64" fill="none" stroke="#FFB84D" stroke-width="12" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402"/>
-        </svg>
-        <div class="num"><span id="totalScore">0</span><small>/100</small></div>
-      </div>
-      <div class="verdict">
-        <h2 id="verdictTitle"></h2>
-        <p id="verdictText"></p>
-        <div class="bars" id="bars"></div>
-      </div>
-    </div>
-
-    <div class="grid2">
-      <div class="card"><h3>✓ نقاط القوة</h3><ul class="list good" id="strengths"></ul></div>
-      <div class="card"><h3>✕ مشكلات حرجة</h3><ul class="list bad" id="issues"></ul></div>
-    </div>
-
-    <div class="card"><h3>◆ خطة التحسين — مرتبة بالأولوية</h3><ul class="list fix" id="fixes"></ul></div>
-
-    <div class="card"><h3>أمثلة إعادة صياغة</h3><div id="rewrites"></div></div>
-
-    <div class="card upsell">
-      <h3>نتيجتك أقل من 85؟</h3>
-      <p>في باقة «إعادة التموضع» أتولى بنفسي إعادة بناء سيرتك وملف LinkedIn بالكامل — بنفس المعايير التي حللنا بها ملفك الآن.</p>
-      <a href="https://wa.me/966503856036" target="_blank" rel="noopener">احجزي استشارة تعارف مجانية</a>
-    </div>
+<div class="trust">
+  <div class="wrap">
+    <span>موثوقة لدى</span>
+    <b>249 Business Development</b>
+    <b>SMAfrica for Innovations</b>
+    <b>Sudanese Leader Women</b>
+    <b>IIBA Sudan Chapter — رئيسة سابقة</b>
+    <span>🏆 المركز الأول في الإرشاد المهني — 3 مرات (السودان ومصر) عبر Favikon وLinkedIn</span>
   </div>
 </div>
 
-<footer>© 2026 ندى موسى — جميع الحقوق محفوظة · نسخة تجريبية v1</footer>
+<section class="sand" id="premium">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">الباقة الرئيسية</div>
+      <h2>إعادة التموضع المهني الكاملة</h2>
+      <p>ليست «سيرة ذاتية»، بل نظام متكامل يعيد تقديمك للسوق الخليجي كمرشّح لا يمكن تجاهله.</p>
+    </div>
+    <div class="pkg">
+      <div class="tier">
+        <h3>الانطلاقة</h3>
+        <div class="price">$39</div>
+        <div class="for">لمن يحتاج أساساً قوياً بسرعة</div>
+        <ul>
+          <li>سيرة ذاتية ATS احترافية (عربي أو إنجليزي)</li>
+          <li>خطاب تقديم مخصص</li>
+          <li>تقرير فحص ATS قبل التسليم</li>
+          <li>تسليم خلال 5 أيام</li>
+        </ul>
+        <a class="btn btn-outline" href="#contact">اطلبي الباقة</a>
+      </div>
+      <div class="tier featured">
+        <div class="ribbon">🔥 سعر الإطلاق — أول 10 مقاعد بـ $149</div>
+        <h3>إعادة التموضع</h3>
+        <div class="price">$199 <small style="text-decoration:line-through;opacity:.6">$249</small></div>
+        <div class="for">للجادّين في الانتقال لوظيفة أعلى خلال 90 يوماً</div>
+        <ul>
+          <li>كل ما في «الانطلاقة» — باللغتين</li>
+          <li>إعادة بناء LinkedIn كاملة: عنوان، نبذة، خبرات، كلمات مفتاحية</li>
+          <li>جلستا كوتشينغ فرديتان (60 دقيقة)</li>
+          <li>استراتيجية تقديم مخصصة لدول الخليج</li>
+          <li>خطة تحرك 30 يوماً + قوالب متابعة</li>
+          <li>دعم واتساب لمدة شهر</li>
+        </ul>
+        <a class="btn btn-gold" href="#contact">احجزي مقعدك</a>
+      </div>
+      <div class="tier">
+        <h3>التحول التنفيذي</h3>
+        <div class="price">$399</div>
+        <div class="for">للقيادات والمناصب الإدارية العليا</div>
+        <ul>
+          <li>كل ما في «إعادة التموضع»</li>
+          <li>4 جلسات كوتشينغ + محاكاة مقابلة</li>
+          <li>بناء علامة شخصية: خطة محتوى LinkedIn شهرية</li>
+          <li>تفاوض على الراتب والعرض الوظيفي</li>
+          <li>دعم مباشر حتى استلام العرض (90 يوماً)</li>
+        </ul>
+        <a class="btn btn-outline" href="#contact">قدّمي طلب انضمام</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-<script>
-// ---------- Environment: Claude artifact OR Netlify production ----------
-const IN_CLAUDE=(typeof window!=='undefined'&&typeof window.storage!=='undefined');
-const API_URL=IN_CLAUDE?'https://api.anthropic.com/v1/messages':'/api/analyze';
-const store=IN_CLAUDE?window.storage:{
-  async get(k){const v=localStorage.getItem('nada:'+k);if(v===null)throw new Error('not found');return{key:k,value:v}},
-  async set(k,v){localStorage.setItem('nada:'+k,v);return{key:k,value:v}}
-};
+<section id="journey">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">كيف نعمل معاً</div>
+      <h2>رحلتك في أربع مراحل</h2>
+      <p>منهجية واضحة، مواعيد ملتزمة، ونتيجة تقيسينها بنفسك.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>التشخيص</h3><p>جلسة تعارف + تحليل ملفك الحالي وتحديد الفجوة بينك وبين الوظيفة المستهدفة.</p></div>
+      <div class="step"><h3>إعادة البناء</h3><p>صياغة السيرة الذاتية وملف LinkedIn بمعايير ATS وكلمات السوق الخليجي المفتاحية.</p></div>
+      <div class="step"><h3>التمكين</h3><p>جلسات كوتشينغ: كيف تقدّمين، كيف تتابعين، وكيف تجيبين في المقابلات بثقة.</p></div>
+      <div class="step"><h3>الانطلاق</h3><p>خطة 30 يوماً بأهداف أسبوعية ومتابعة مباشرة حتى تبدأ الدعوات بالوصول.</p></div>
+    </div>
+  </div>
+</section>
 
-// ---------- tabs ----------
-document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
-  t.classList.add('active');
-  document.getElementById('p-'+t.dataset.t).classList.add('active');
-  document.getElementById('results').style.display='none';
-}));
+<svg class="pyr to-sand" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46 L120 8 L240 46 L360 12 L480 46 L600 4 L720 46 L840 12 L960 46 L1080 8 L1200 46 Z"/></svg>
 
-// ---------- PDF upload ----------
-let pdfBase64=null;
-const filebox=document.getElementById('filebox'),pdfInput=document.getElementById('pdfInput');
-filebox.addEventListener('click',()=>pdfInput.click());
-filebox.addEventListener('keydown',e=>{if(e.key==='Enter')pdfInput.click()});
-function handleUpload(f,errEl,box,onPdf,onDocxText){
-  if(!f)return;
-  const isPdf=f.type==='application/pdf'||/\.pdf$/i.test(f.name);
-  const isDocx=/\.docx$/i.test(f.name);
-  if(!isPdf&&!isDocx){errEl.textContent='⚠ الصيغة غير مدعومة — المقبول: PDF أو Word (docx).';show(errEl,true);return}
-  if(f.size>4*1024*1024){errEl.textContent='⚠ الملف أكبر من 4MB — صدّري نسخة أخف أو الصقي النص مباشرة.';show(errEl,true);return}
-  show(errEl,false);
-  if(isPdf){
-    const r=new FileReader();
-    r.onload=()=>{onPdf(r.result.split(',')[1]);box.classList.add('hasfile');box.textContent='✓ '+f.name+' — جاهز للتحليل';};
-    r.onerror=()=>{errEl.textContent='⚠ تعذر قراءة الملف — أعيدي المحاولة.';show(errEl,true)};
-    r.readAsDataURL(f);
-  }else{
-    if(typeof mammoth==='undefined'){errEl.textContent='⚠ مكتبة قراءة Word لم تُحمّل — تحققي من الاتصال وأعيدي تحميل الصفحة.';show(errEl,true);return}
-    const r=new FileReader();
-    r.onload=()=>{
-      mammoth.extractRawText({arrayBuffer:r.result}).then(res=>{
-        const txt=(res.value||'').trim();
-        if(txt.length<80){errEl.textContent='⚠ لم أستخرج نصاً كافياً من الملف — ربما يعتمد على جداول/صور. الصقي النص يدوياً.';show(errEl,true);return}
-        onDocxText(txt);box.classList.add('hasfile');box.textContent='✓ '+f.name+' — استُخرج النص وجاهز للتحليل';
-      }).catch(()=>{errEl.textContent='⚠ تعذر فتح ملف Word — جرّبي حفظه من جديد بصيغة docx أو PDF.';show(errEl,true)});
-    };
-    r.readAsArrayBuffer(f);
-  }
-}
-pdfInput.addEventListener('change',()=>{
-  handleUpload(pdfInput.files[0],$('errResume'),filebox,
-    b64=>{pdfBase64=b64;},
-    txt=>{pdfBase64=null;$('resumeText').value=txt;});
-  pdfInput.value='';
-});
+<section class="sand" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">خدمات متخصصة</div>
+      <h2>حلول لكل مرحلة مهنية</h2>
+    </div>
+    <div class="svc">
+      <div class="card"><div class="ic">📄</div><h3>سيرة ذاتية ATS</h3><p>صياغة قائمة على الأرقام والنتائج، بتنسيق يجتاز أنظمة الفرز الآلي في الخليج.</p></div>
+      <div class="card"><div class="ic">💼</div><h3>إعادة بناء LinkedIn</h3><p>عنوان وملف كامل يظهرك في نتائج بحث مسؤولي التوظيف ويحوّل الزيارات لفرص.</p></div>
+      <div class="card"><div class="ic">🎯</div><h3>كوتشينغ مسار مهني</h3><p>جلسات فردية لتحديد الوجهة، بناء الثقة، والاستعداد للمقابلات والتفاوض.</p></div>
+      <div class="card"><div class="ic">🏢</div><h3>تدريب مؤسسي</h3><p>ورش عمل للشركات والمبادرات في التوظيف، تطوير المواهب، والعلامة المهنية.</p></div>
+      <div class="card"><div class="ic">📚</div><h3>تحضير SHRM-CP</h3><p>منصة تدريب ثنائية اللغة: 440+ سؤالاً، اختبارات محاكاة، ومراجعة متباعدة.</p></div>
+      <div class="card"><div class="ic">🎤</div><h3>محتوى وتحدث</h3><p>محاضرات وبودكاست حول التمكين المهني وريادة المرأة في سوق العمل.</p></div>
+    </div>
+  </div>
+</section>
 
-// ---------- helpers ----------
-const $=id=>document.getElementById(id);
-function show(el,on){el.style.display=on?'block':'none'}
-function fillList(id,items,withFix){const u=$(id);u.innerHTML='';(items||[]).forEach(x=>{const li=document.createElement('li');li.textContent=x;
-  if(withFix){const b=document.createElement('button');b.className='fixbtn';b.textContent='✨ عدّلي لي';b.addEventListener('click',()=>smartFix(x,b));li.appendChild(b);}
-  u.appendChild(li)})}
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-visual" role="img" aria-label="شعار ندى">ن</div>
+    <div>
+      <div class="tag" style="color:var(--oasis);font-weight:800;font-size:.85rem;letter-spacing:1px">من أنا</div>
+      <h2>خبرة موارد بشرية… بروح حكّاءة</h2>
+      <p>أنا ندى موسى — استشارية موارد بشرية أولى ومدربة مسار مهني مقيمة في جدة، بخبرة تتجاوز 10 سنوات في التدريب والإرشاد والتطوير المؤسسي. خلال 3 سنوات فقط، أعددت أكثر من 1500 سيرة ذاتية احترافية وأعدت بناء 500+ ملف LinkedIn لمهنيين من الشرق الأوسط وأفريقيا يستهدفون السوق الخليجي.</p>
+      <p>قدت إدارات موارد بشرية لمؤسسات تضم 200-300 موظف، وترأست فرع IIBA السودان، وحصلت على المركز الأول في الإرشاد المهني ثلاث مرات عبر منصات مهنية في السودان ومصر. وأؤمن أن كل مسار مهني قصة تستحق أن تُروى جيداً — ولعلّ كوني روائية أيضاً هو ما يجعل ملفات عملائي تُقرأ ولا تُتجاوز.</p>
+      <div class="badges">
+        <span>10+ سنوات في الموارد البشرية</span>
+        <span>🏆 المركز الأول في الإرشاد المهني ×3</span>
+        <span>رئيسة سابقة — IIBA السودان</span>
+        <span>شريكة مؤسسة — Sudanese Leader Women</span>
+        <span>مدربة معتمدة TOT / TMT</span>
+        <span>مؤلفة ومبدعة محتوى</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-function renderResults(d){
-  show($('loading'),false);show($('results'),true);
-  const s=Math.max(0,Math.min(100,d.total_score||0));
-  $('totalScore').textContent=s;
-  const arc=$('gaugeArc');arc.style.transition='stroke-dashoffset 1s ease';
-  requestAnimationFrame(()=>{arc.style.strokeDashoffset=402-(402*s/100)});
-  arc.style.stroke=s>=80?'#2DD4BF':(s>=60?'#FFB84D':'#FF5E7A');
-  $('verdictTitle').textContent=d.verdict_title||'';
-  $('verdictText').textContent=d.verdict_text||'';
-  const bars=$('bars');bars.innerHTML='';
-  (d.categories||[]).forEach(c=>{
-    const cls=c.score>=80?'':(c.score>=60?'mid':'low');
-    bars.insertAdjacentHTML('beforeend',
-      `<div class="bar"><div class="t"><b>${c.name}</b><span>${c.score}</span></div><div class="track"><div class="fill ${cls}" style="width:${c.score}%"></div></div></div>`);
-  });
-  fillList('strengths',d.strengths);
-  fillList('issues',d.critical_issues,true);
-  fillList('fixes',d.priority_fixes,true);
-  const rw=$('rewrites');rw.innerHTML='';
-  (d.rewrites||[]).forEach(r=>{
-    rw.insertAdjacentHTML('beforeend',`<div class="rewrite"><span class="before">${r.before}</span><span class="after">${r.after}</span></div>`);
-  });
-  $('results').scrollIntoView({behavior:'smooth'});
-}
+<svg class="pyr to-sand" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46 L120 8 L240 46 L360 12 L480 46 L600 4 L720 46 L840 12 L960 46 L1080 8 L1200 46 Z"/></svg>
 
-async function apiJSON(content){
-  const res=await fetch(API_URL,{
-    method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,messages:[{role:'user',content}]})
-  });
-  if(res.status===404){throw new Error('FN404')}
-  const ct=res.headers.get('content-type')||'';
-  if(!ct.includes('json')){throw new Error('FNBAD:'+res.status)}
-  const data=await res.json();
-  if(data.error){throw new Error('API: '+(data.error.message||data.error.type))}
-  if(data.stop_reason==='max_tokens'){throw new Error('TRUNCATED')}
-  const text=(data.content||[]).filter(i=>i.type==='text').map(i=>i.text).join('\n');
-  const m=text.replace(/```json|```/g,'').match(/\{[\s\S]*\}/);
-  if(!m){throw new Error('NOJSON')}
-  return JSON.parse(m[0]);
-}
+<section class="sand" id="results">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">قالوا عني</div>
+      <h2>نتائج يرويها أصحابها</h2>
+    </div>
+    <div class="quotes">
+      <div class="q">بعد إعادة بناء ملفي، بدأت رسائل مسؤولي التوظيف تصلني لأول مرة منذ سنتين. حصلت على 3 مقابلات في أول شهر.
+        <footer>[اسم العميل] <span>مهندس مدني — السعودية</span></footer></div>
+      <div class="q">الفرق لم يكن في التنسيق فقط، بل في طريقة سرد إنجازاتي بالأرقام. شعرت أن سيرتي تتحدث عني أخيراً.
+        <footer>[اسم العميلة] <span>أخصائية موارد بشرية — الإمارات</span></footer></div>
+      <div class="q">جلسات الكوتشينغ غيّرت طريقة تقديمي لنفسي في المقابلات. وقّعت عرضاً براتب أعلى بـ 30% من وظيفتي السابقة.
+        <footer>[اسم العميل] <span>محاسب أول — قطر</span></footer></div>
+    </div>
+  </div>
+</section>
 
-const PART1='المطلوب في هذا الرد فقط: {"total_score":0-100,"verdict_title":"جملة قصيرة","verdict_text":"سطران","categories":[...كما هو محدد أعلاه...]} — أعد JSON مضغوطاً بسطر واحد بهذه الحقول فقط، بلا strengths أو غيرها.';
-const PART2='المطلوب في هذا الرد فقط: {"strengths":["4 كحد أقصى"],"critical_issues":["4 كحد أقصى"],"priority_fixes":["5 كحد أقصى"],"rewrites":[{"before":"نص أصلي من الملف","after":"صيغة محسّنة"},{"before":"..","after":".."}]} — rewrites عنصران فقط، كل جملة 12 كلمة كحد أقصى، JSON مضغوط بسطر واحد بهذه الحقول فقط، بلا درجات.';
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>وظيفتك القادمة تبدأ <em>بمحادثة واحدة</em></h2>
+    <p>احجزي جلسة تعارف مجانية (15 دقيقة) نحدد فيها هدفك، ونرى إن كانت الباقة مناسبة لك. بلا التزام.</p>
+    <a class="btn btn-gold" href="https://wa.me/249911231134" target="_blank" rel="noopener">تواصلي عبر واتساب</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/nada-musa/" target="_blank" rel="noopener">تابعيني على LinkedIn</a>
+  </div>
+</section>
 
-async function runAnalysis(makeContent,loadMsg,errEl){
-  show($('results'),false);show(errEl,false);
-  $('loadmsg').textContent=loadMsg;show($('loading'),true);
-  try{
-    const [a,b]=await Promise.all([apiJSON(makeContent(PART1)),apiJSON(makeContent(PART2))]);
-    renderResults(Object.assign({},a,b));
-  }catch(e){
-    show($('loading'),false);
-    let msg='حدث خطأ غير متوقع.';
-    if(e.message==='FN404')msg='الوسيط الخلفي /api/analyze غير موجود على الخادم — وظائف Netlify لم تُنشر مع الموقع. تحققي من تبويب Functions في لوحة Netlify (التفاصيل في دليل النشر).';
-    else if(e.message&&e.message.startsWith('FNBAD'))msg='الخادم رد بصيغة غير متوقعة (كود '+e.message.split(':')[1]+') — غالباً الوظيفة الخلفية معطلة. افتحي Logs → Functions في لوحة Netlify وانسخي لي الخطأ.';
-    else if(e.message==='TRUNCATED')msg='الرد تجاوز الحد رغم التقسيم — أعيدي المحاولة، وإن تكررت أرسلي لنا لقطة شاشة.';
-    else if(e.message==='NOJSON'||e instanceof SyntaxError)msg='تعذر قراءة نتيجة التحليل — أعيدي المحاولة مرة أخرى.';
-    else if(e.message&&e.message.includes('exceeded_limit')){
-      let when='';
-      try{const t=JSON.parse(e.message.slice(4).trim());if(t.resetsAt){when=' يتجدد رصيدك '+new Date(t.resetsAt*1000).toLocaleString('ar-SA',{hour:'2-digit',minute:'2-digit',weekday:'long'})+'.'}}catch(_){}
-      msg='وصلتِ حد الاستخدام المؤقت لحساب Claude (نافذة الـ5 ساعات).'+when+' هذا حد الحساب وليس عطلاً في الأداة — عودي بعد التجدد أو رقّي خطتك.';
-    }
-    else if(e.message&&e.message.startsWith('API:'))msg='رفض من الخادم: '+e.message.slice(4)+' — إن كان الملف كبيراً جرّبي لصق النص بدلاً منه.';
-    else if(e.name==='TypeError')msg='مشكلة اتصال بالشبكة — تحققي من الإنترنت وأعيدي المحاولة.';
-    errEl.textContent='⚠ '+msg;show(errEl,true);
-    errEl.scrollIntoView({behavior:'smooth',block:'center'});
-  }
-}
+<footer class="site">
+  <div class="wrap">
+    <div>© 2026 ندى موسى — HR Consultant & Career Coach | جدة، السعودية</div>
+    <div><a href="mailto:nada.elfatih.mahgoub@gmail.com">nada.elfatih.mahgoub@gmail.com</a> · <a href="https://www.linkedin.com/in/nada-musa/">LinkedIn</a></div>
+  </div>
+</footer>
 
-function makeContentBuilder(rubricAndCtx,pdfB64,plainText){
-  return part=>{
-    const full=rubricAndCtx+'\n'+part;
-    if(pdfB64){return [{type:'document',source:{type:'base64',media_type:'application/pdf',data:pdfB64}},{type:'text',text:full}]}
-    return full+'\n\nالمحتوى:\n'+plainText;
-  };
-}
-
-// ---------- Account & credits (window.storage) ----------
-let account=null;
-const FREE_CREDITS=5;
-function creditUI(){
-  const b=$('creditBadge');
-  if(!account){b.style.display='none';return}
-  b.style.display='block';
-  b.innerHTML='<span class="credit-badge">👤 '+account.email+' · تعديلات ذكية متبقية: '+account.credits+' من '+FREE_CREDITS+'</span>';
-  $('loginBar').style.display='none';
-}
-async function saveAccount(){try{await store.set('account:'+account.email,JSON.stringify(account))}catch(e){}}
-$('loginBtn').addEventListener('click',async()=>{
-  const em=$('userEmail').value.trim().toLowerCase();
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){alert('أدخلي بريداً صحيحاً');return}
-  try{
-    const r=await store.get('account:'+em);
-    account=JSON.parse(r.value);
-  }catch(e){
-    account={email:em,credits:FREE_CREDITS,created:Date.now()};
-    await saveAccount();
-  }
-  creditUI();
-});
-
-// ---------- Smart-fix path (separate, credit-limited) ----------
-let lastSubmission=null; // {type:'text'|'pdf', value, kind:'resume'|'linkedin'}
-async function smartFix(issueText,btn){
-  if(!account){alert('سجّلي دخولك بالإيميل أولاً لاستخدام التعديلات الذكية');$('userEmail').focus();return}
-  if(account.credits<=0){alert('انتهت تعديلاتك المجانية — باقة إعادة التموضع تشمل إعادة كتابة كاملة بلا حدود');return}
-  if(!lastSubmission){alert('حللي ملفك أولاً');return}
-  btn.disabled=true;btn.textContent='…جاري';
-  const ask='أنت خبيرة إعادة صياغة بمنهجية ندى موسى. المطلوب معالجة هذه الملاحظة تحديداً: «'+issueText+'». أعد JSON فقط بسطر واحد: {"rewrites":[{"before":"النص الأصلي المعني من الملف","after":"الصيغة المحسّنة بفعل قوي ورقم"},{"before":"...","after":"..."}]} — عنصران كحد أقصى، جمل قصيرة.';
-  let content;
-  if(lastSubmission.type==='pdf'){content=[{type:'document',source:{type:'base64',media_type:'application/pdf',data:lastSubmission.value}},{type:'text',text:ask}]}
-  else{content=ask+'\n\nالملف:\n'+lastSubmission.value}
-  try{
-    const res=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,messages:[{role:'user',content}]})});
-    const data=await res.json();
-    if(data.error)throw new Error('API: '+(data.error.message||data.error.type));
-    const text=(data.content||[]).filter(i=>i.type==='text').map(i=>i.text).join('');
-    const m=text.replace(/```json|```/g,'').match(/\{[\s\S]*\}/);
-    const parsed=JSON.parse(m[0]);
-    const rw=$('rewrites');
-    (parsed.rewrites||[]).forEach(r=>{rw.insertAdjacentHTML('afterbegin','<div class="rewrite"><span class="before">'+r.before+'</span><span class="after">'+r.after+'</span></div>')});
-    account.credits--;await saveAccount();creditUI();
-    btn.textContent='✓ تم';
-    document.querySelector('#rewrites').scrollIntoView({behavior:'smooth',block:'center'});
-  }catch(e){btn.disabled=false;btn.textContent='✨ عدّلي لي';
-    alert(e.message&&e.message.includes('exceeded_limit')?'وصلتِ حد الاستخدام المؤقت لحساب Claude — عودي بعد تجدد النافذة (كل 5 ساعات)':'تعذر التعديل — أعيدي المحاولة')}
-}
-
-// ---------- Country rules engine (Nada's market differentiator) ----------
-const COUNTRY_RULES={
-gcc:`قواعد بلد التقديم — الخليج العربي: الطول المقبول 2-3 صفحات. تُذكر الجنسية وحالة التأشيرة/الإقامة (إقامة قابلة للنقل، تأشيرة زيارة) وفترة الإشعار Notice Period قرب الأعلى — مسؤولو التوظيف الخليجيون يفلترون على الجاهزية أولاً. الصورة شائعة في الإرسال المباشر للريكروتر لكن يجب حذفها في التقديم عبر بوابات ATS. رقم واتساب متوقع. الإنجازات المالية بعملة محلية (SAR/AED) ترفع الاستجابة. للسعودية: الوعي بالسعودة/نطاقات مهم لغير السعوديين. عضويات الهيئات (SCE) نقطة قوة. اللغة إنجليزية (والعربية للجهات الحكومية).`,
-usa:`قواعد بلد التقديم — الولايات المتحدة وكندا: صفحة إلى صفحتين حداً صارماً. يُمنع منعاً باتاً: الصورة، تاريخ الميلاد، الجنسية، الحالة الاجتماعية، الديانة — وجود أي منها مشكلة حرجة تخصم بشدة (يفتح باب دعاوى تمييز والكثير من أقسام HR يرفضون السيرة فوراً). العنوان: المدينة والولاية فقط. المصطلح resume. نقاط إنجاز مكمّاة بقوة هي الأسلوب السائد. حق العمل يُذكر في نموذج التقديم لا في السيرة. تهجئة أمريكية (organized, analyzed). قياس Letter وليس A4.`,
-uk:`قواعد بلد التقديم — بريطانيا وأيرلندا: صفحتان هو المعيار (صفحة واحدة تبدو هزيلة لمن لديه 2+ سنوات خبرة). يُمنع: الصورة، تاريخ الميلاد، الجنسية، الحالة الاجتماعية (قانون المساواة 2010). تبدأ بـ Personal Statement من 3-4 أسطر تركز على ما يقدمه المرشح للشركة. تاريخ وظيفي حتى 10-15 سنة فقط، والأقدم في قسم Additional Experience بلا تواريخ. تهجئة بريطانية (organised, analysed, programme). المصطلح CV. ورق A4.`,
-aus:`قواعد بلد التقديم — أستراليا ونيوزيلندا: 2-3 صفحات مقبولة. يُمنع: الصورة وتاريخ الميلاد والتفاصيل الشخصية. ملخص مهني في الأعلى. ميزة فارقة: قسم Referees في النهاية بأسماء 2-3 معرّفين حقيقيين مع مناصبهم وهواتفهم وإيميلاتهم (وليس References available upon request) — وقد يُتصل بهم مبكراً. تهجئة بريطانية. أسلوب وقائعي يركز على الإنجازات المكمّاة.`,
-remote:`قواعد بلد التقديم — الوظائف عن بُعد لدى شركات دولية: تُطبق المعايير الأمريكية افتراضياً (Greenhouse/Lever): بلا صورة، بلا تفاصيل شخصية، طول مضغوط، نقاط إنجاز. إضافتان يبحث عنهما مسؤولو التوظيف عن بُعد تحديداً: المنطقة الزمنية بوضوح (مثال: UTC+3 مع تداخل 4 ساعات مع توقيت أمريكا الشرقي) وأدوات العمل عن بُعد بالاسم (Slack, Notion, Jira, Async docs). جودة الإنجليزية المكتوبة تُقيَّم كعينة عمل أولى.`
-};
-
-const JD_MATCH_ADDON=`مطابقة إعلان الوظيفة: إعلان الوظيفة مرفق أدناه. استخرج منه المهارات الصلبة (hard skills) والناعمة والمسمى والمؤهلات، وقارنها بالسيرة. أضف فئة تقييم باسم "نسبة المطابقة مع إعلان الوظيفة" (الهدف 75%+)، واجعل أول عناصر priority_fixes قائمة بأهم الكلمات المفتاحية المفقودة حرفياً من الإعلان مع اقتراح مكان دمجها الطبيعي (بلا حشو keyword stuffing — الكلمة داخل جملة إنجاز). طابق المرادفات دلالياً (team leadership = led a team).`;
-
-const RESUME_RUBRIC=`أنت مساعد تحليل سير ذاتية يعمل بمنهجية الخبيرة ندى موسى (1500+ سيرة ذاتية للسوق الخليجي). حلل السيرة الذاتية وأعد JSON فقط — بدون أي نص آخر وبدون Markdown — بهذا الشكل بالضبط:
-{"total_score":0-100,"verdict_title":"جملة حكم قصيرة","verdict_text":"سطران عن الوضع العام","categories":[{"name":"البنية القياسية والترتيب","score":0-100},{"name":"الملخص المهني","score":0-100},{"name":"نسبة الأرقام والنتائج في النقاط","score":0-100},{"name":"قوة الأفعال والصياغة","score":0-100},{"name":"كلمات السوق الخليجي وإشاراته","score":0-100}],"strengths":["3-5 نقاط"],"critical_issues":["3-5 مشكلات"],"priority_fixes":["5 إصلاحات مرتبة بالأولوية"],"rewrites":[{"before":"نقطة ضعيفة من السيرة نفسها","after":"إعادة صياغتها بمقياس رقمي وفعل قوي"},{"before":"...","after":"..."}]}
-منهجية التقييم — البنية القياسية بالترتيب: (1) الاسم ثم سطر عنوان مهني بصيغة: المسمى | التخصص | نقاط تميز (شهادات/سنوات) مفصولة بخط عمودي. (2) سطر تواصل واحد: المدينة | الهاتف | الإيميل | LinkedIn + إشارات خليجية إن وجدت (إقامة سارية، عضوية هيئة المهندسين SCE، رخصة قيادة). (3) ملخص مهني 4-6 أسطر يذكر: سنوات الخبرة + القطاعات + الجغرافيا + 2-3 أرقام إنجاز مدمجة + أهم الشهادات. (4) المهارات في مجموعات مصنفة مفصولة بخط عمودي |، ويفضل تسميات فئات (أنظمة الجودة: / الأدوات:). (5) الخبرات: المسمى - الشركة، الدولة، التواريخ ثم 4-7 نقاط لكل وظيفة. (6) قسم مشاريع رئيسية بقيمها المالية للمهندسين. (7) التعليم ثم الشهادات ثم اللغات.
-معايير الصياغة: 60-70% من النقاط تحتوي أرقاماً (نسب، مبالغ، أعداد فرق، مساحات). أفعال قوية متنوعة في بداية كل نقطة (قاد، أسّس، صمّم، خفّض، رفع / Spearheaded, Directed, Orchestrated) — خصم صارم للأفعال الضعيفة: مسؤول عن، ساعد، شارك، oversaw, supported, assisted. إظهار الترقيات والنمو داخل نفس الشركة. لا جداول ولا عمودين ولا صور. للسير العربية: نفس البنية بالضبط، مع إبقاء المسميات الوظيفية والشهادات والأنظمة التقنية بالإنجليزية بجانب العربية (لأن أنظمة ATS تبحث بها)، والأرقام بالأرقام اللاتينية 123.
-أجب بالعربية داخل قيم JSON. كن صارماً وواقعياً — سيرة متوسطة تستحق 55-65 وليس 75. قيود صارمة على الحجم لضمان اكتمال الرد: strengths و critical_issues أربعة عناصر كحد أقصى، priority_fixes خمسة كحد أقصى، rewrites اثنان فقط، وكل جملة لا تتجاوز 15 كلمة. أعد JSON مضغوطاً في سطر واحد.`;
-
-$('analyzeResume').addEventListener('click',()=>{
-  const txt=$('resumeText').value.trim();
-  const role=$('targetRole').value.trim(),country=$('targetCountry').value;
-  const jd=$('jobDesc').value.trim();
-  let ctx='الوظيفة المستهدفة: '+(role||'غير محددة')+'\n'+COUNTRY_RULES[country];
-  ctx+='\nمهم: أضف فئة تقييم باسم "التوافق مع معايير بلد التقديم" تقيس التزام السيرة بقواعد البلد أعلاه، واذكر أي مخالفة لقواعد البلد ضمن المشكلات الحرجة.';
-  if(jd){ctx+='\n'+JD_MATCH_ADDON+'\n\nإعلان الوظيفة:\n'+jd;}
-  if(!txt&&!pdfBase64){$('errResume').textContent='الصقي نص السيرة أو ارفعي ملف PDF أو Word أولاً.';show($('errResume'),true);return}
-  lastSubmission=pdfBase64&&!txt?{type:'pdf',value:pdfBase64,kind:'resume'}:{type:'text',value:txt,kind:'resume'};
-  const builder=makeContentBuilder(RESUME_RUBRIC+'\n'+ctx,(pdfBase64&&!txt)?pdfBase64:null,txt);
-  runAnalysis(builder,'جاري الفحص بمعايير '+$('targetCountry').selectedOptions[0].text+'…',$('errResume'));
-});
-
-// ---------- LinkedIn analysis ----------
-let liPdfBase64=null;
-const liFilebox=$('liFilebox'),liPdfInput=$('liPdfInput');
-liFilebox.addEventListener('click',()=>liPdfInput.click());
-liFilebox.addEventListener('keydown',e=>{if(e.key==='Enter')liPdfInput.click()});
-let liDocxText=null;
-liPdfInput.addEventListener('change',()=>{
-  handleUpload(liPdfInput.files[0],$('errLI'),liFilebox,
-    b64=>{liPdfBase64=b64;liDocxText=null;},
-    txt=>{liPdfBase64=null;liDocxText=txt;});
-  liPdfInput.value='';
-});
-
-const LI_RUBRIC=`أنت مساعد تحليل ملفات LinkedIn بمنهجية الخبيرة ندى موسى (500+ ملف محسّن للسوق الخليجي). حلل الملف بأقسامه وأعد JSON فقط — بدون أي نص آخر وبدون Markdown — بهذه البنية:
-{"total_score":0-100,"verdict_title":"...","verdict_text":"...","categories":[{"name":"العنوان المهني Headline","score":0-100},{"name":"النبذة About","score":0-100},{"name":"قسم الخبرات","score":0-100},{"name":"المهارات والتوصيات","score":0-100},{"name":"الظهور في بحث الريكروترز","score":0-100},{"name":"الاكتمال والعلامة الشخصية","score":0-100}],"strengths":["4-6 نقاط قوة محددة بقسمها"],"critical_issues":["4-6 نقاط ضعف محددة بقسمها"],"priority_fixes":["5-7 إصلاحات مرتبة بالأولوية والأثر"],"rewrites":[{"before":"العنوان الحالي أو جملة فعلية من الملف","after":"الصيغة المحسّنة"},{"before":"...","after":"..."}]}
-منهجية التقييم:
-العنوان: ~220 حرفاً بأسلوب elevator pitch: التخصص + المهارات + كلمات مفتاحية يبحث بها الريكروتر + إنجاز رقمي (نموذج: HR Consultant & Career Coach | ATS Resume + LinkedIn Rebrand | +25% Interview Rate | GCC Market). المسمى الوظيفي وحده = درجة ضعيفة.
-النبذة: خطاف افتتاحي في أول سطرين (لأنهما الظاهران قبل See more)، قصة مهنية بأرقام، كلمات مفتاحية للمجال موزعة طبيعياً، CTA واضح بوسيلة تواصل في النهاية.
-الخبرات: كل وظيفة لها وصف بنقاط إنجاز مكمّاة لا مجرد مسمى، وتطابق السيرة الذاتية، مع كلمات مفتاحية.
-المهارات: 30+ مهارة، أهم 3 مثبتة Pinned تطابق الوظيفة المستهدفة، توصيات Recommendations حقيقية.
-الظهور في البحث: تكرار الكلمات المفتاحية للوظيفة المستهدفة في العنوان والنبذة والخبرات والمهارات معاً (الريكروتر يبحث بـ Recruiter Search على هذه الحقول)، مسمى وظيفي قياسي قابل للبحث، المنطقة محددة.
-الاكتمال — قائمة فحص ثنائية إلزامية، افحص كل بند واذكر نتيجته صراحة ضمن نقاط القوة (إن وُجد) أو المشكلات/الإصلاحات (إن غاب):
-(1) رابط URL مخصص بصيغة linkedin.com/in/الاسم بلا أرقام عشوائية — أسهل للمشاركة في السيرة وبطاقات العمل.
-(2) الموقع الجغرافي (المدينة والدولة) محدد ومحدّث — الريكروترز يفلترون بالموقع ولا تظهرين في بحثهم بدونه.
-(3) قسم Honors & Awards — غير حرج لكنه يضيف قيمة، خاصة لمن لديه جوائز مهنية.
-(4) قسم Publications / Certifications — يوسع الظهور عند البحث بمؤهلات محددة.
-(5) قسم Skills يضم 3 مهارات كحد أدنى (والمثالي 30+) — الريكروترز يفلترون بمهارات تقنية محددة بالاسم.
-(6) الصورة الشخصية وصورة الغلاف وقسم Featured: ملفات PDF المُصدّرة من LinkedIn لا تتضمنها أبداً، لذا قاعدة صارمة: يُمنع منعاً باتاً إدراجها في critical_issues أو priority_fixes أو strengths، ويُمنع خصم أي درجة بسببها من أي فئة. الطريقة الوحيدة المسموحة لذكرها: جملة واحدة محايدة في نهاية verdict_text بصيغة تذكير ودي، مثل: «تذكير: الصورة الشخصية والغلاف وقسم Featured لا تظهر في PDF المُصدّر — تأكدي فقط من وجودها في ملفك المباشر». لا شيء أكثر من ذلك.
-أجب بالعربية داخل قيم JSON. كن صارماً — ملف متوسط يستحق 50-65. قيود صارمة على الحجم لضمان اكتمال الرد: strengths و critical_issues أربعة عناصر كحد أقصى، priority_fixes خمسة كحد أقصى، rewrites اثنان فقط، وكل جملة لا تتجاوز 15 كلمة. أعد JSON مضغوطاً في سطر واحد. إن كانت المعطيات جزئية (عنوان ونبذة فقط) قيّم الأقسام المتوفرة واجعل درجة الأقسام الغائبة تقديرية مع ذكر ذلك في verdict_text.`;
-
-$('analyzeLI').addEventListener('click',async()=>{
-  const url=$('liUrl').value.trim();
-  const h=$('liHeadline').value.trim(),a=$('liAbout').value.trim(),r=$('liRole').value.trim();
-  const roleCtx='\nالمجال المستهدف: '+(r||'غير محدد');
-  show($('errLI'),false);
-
-  if(liDocxText){
-    lastSubmission={type:'text',value:liDocxText,kind:'linkedin'};
-    runAnalysis(makeContentBuilder(LI_RUBRIC+roleCtx+'\nهذا نص ملف LinkedIn كامل — حلل كل أقسامه.',null,liDocxText),'جاري تحليل ملف LinkedIn الكامل…',$('errLI'));
-    return;
-  }
-  if(liPdfBase64){
-    lastSubmission={type:'pdf',value:liPdfBase64,kind:'linkedin'};
-    runAnalysis(makeContentBuilder(LI_RUBRIC+roleCtx+'\nهذا ملف PDF مُصدَّر من LinkedIn — حلل كل أقسامه.',liPdfBase64,null),'جاري تحليل ملف LinkedIn الكامل…',$('errLI'));
-    return;
-  }
-  if(url){
-    if(!/linkedin\.com\/in\//i.test(url)){$('errLI').textContent='الرابط يجب أن يكون بصيغة linkedin.com/in/username';show($('errLI'),true);return}
-    show($('results'),false);$('loadmsg').textContent='جاري محاولة الوصول المباشر للملف…';show($('loading'),true);
-    try{
-      const res=await fetch(API_URL,{
-        method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,
-          tools:[{type:'web_search_20250305',name:'web_search'}],
-          messages:[{role:'user',content:'ابحث عن الملف المهني العام في هذا الرابط واجمع ما يظهر منه ثم لخصه نصاً منظماً بأقسامه (العنوان، النبذة، الخبرات، المهارات) بلا أي تعليق: '+url+'\nإن لم تستطع الوصول للمحتوى إطلاقاً أجب بكلمة واحدة: BLOCKED'}]
-        })
-      });
-      const data=await res.json();
-      if(data.error)throw new Error('API: '+(data.error.message||''));
-      const text=(data.content||[]).filter(i=>i.type==='text').map(i=>i.text).join('\n');
-      if(!text||/BLOCKED/.test(text)||text.length<200)throw new Error('blocked');
-      lastSubmission={type:'text',value:text,kind:'linkedin'};
-      runAnalysis(makeContentBuilder(LI_RUBRIC+roleCtx,null,text),'وصلنا للملف — جاري التحليل…',$('errLI'));
-    }catch(e){
-      show($('loading'),false);
-      $('errLI').textContent='تعذر الوصول المباشر لهذا الملف (خصوصية LinkedIn). الحل الأدق: من ملفك اضغطي More ← Save to PDF وارفعي الملف أعلاه.';
-      show($('errLI'),true);
-    }
-    return;
-  }
-  if(h||a){
-    lastSubmission={type:'text',value:'العنوان: '+h+'\nالنبذة: '+a,kind:'linkedin'};
-    runAnalysis(makeContentBuilder(LI_RUBRIC+roleCtx,null,'العنوان الحالي:\n'+(h||'(فارغ)')+'\n\nالنبذة الحالية:\n'+(a||'(فارغة)')),'جاري تحليل العنوان والنبذة…',$('errLI'));
-    return;
-  }
-  $('errLI').textContent='أدخلي رابط الملف، أو ارفعي ملفاً، أو الصقي العنوان والنبذة.';
-  show($('errLI'),true);
-});
-</script>
 </body>
 </html>
