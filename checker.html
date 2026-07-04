@@ -244,7 +244,16 @@ footer{text-align:center;padding:36px 0;color:var(--muted);font-size:.8rem;font-
 <script>
 // ---------- Environment: Claude artifact OR Netlify production ----------
 const IN_CLAUDE=(typeof window!=='undefined'&&typeof window.storage!=='undefined');
-const API_URL=IN_CLAUDE?'https://api.anthropic.com/v1/messages':'/api/analyze';
+let API_URL=IN_CLAUDE?'https://api.anthropic.com/v1/messages':'/api/analyze';
+const API_FALLBACK=IN_CLAUDE?null:'/.netlify/functions/analyze';
+async function smartFetch(payload){
+  let res=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+  if(res.status===404&&API_FALLBACK&&API_URL!==API_FALLBACK){
+    const res2=await fetch(API_FALLBACK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(res2.status!==404){API_URL=API_FALLBACK;return res2}
+  }
+  return res;
+}
 const store=IN_CLAUDE?window.storage:{
   async get(k){const v=localStorage.getItem('nada:'+k);if(v===null)throw new Error('not found');return{key:k,value:v}},
   async set(k,v){localStorage.setItem('nada:'+k,v);return{key:k,value:v}}
@@ -329,10 +338,7 @@ function renderResults(d){
 }
 
 async function apiJSON(content){
-  const res=await fetch(API_URL,{
-    method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,messages:[{role:'user',content}]})
-  });
+  const res=await smartFetch({model:'claude-sonnet-4-6',max_tokens:1000,messages:[{role:'user',content}]});
   if(res.status===404){throw new Error('FN404')}
   const ct=res.headers.get('content-type')||'';
   if(!ct.includes('json')){throw new Error('FNBAD:'+res.status)}
@@ -417,8 +423,7 @@ async function smartFix(issueText,btn){
   if(lastSubmission.type==='pdf'){content=[{type:'document',source:{type:'base64',media_type:'application/pdf',data:lastSubmission.value}},{type:'text',text:ask}]}
   else{content=ask+'\n\nالملف:\n'+lastSubmission.value}
   try{
-    const res=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,messages:[{role:'user',content}]})});
+    const res=await smartFetch({model:'claude-sonnet-4-6',max_tokens:1000,messages:[{role:'user',content}]});
     const data=await res.json();
     if(data.error)throw new Error('API: '+(data.error.message||data.error.type));
     const text=(data.content||[]).filter(i=>i.type==='text').map(i=>i.text).join('');
@@ -513,13 +518,9 @@ $('analyzeLI').addEventListener('click',async()=>{
     if(!/linkedin\.com\/in\//i.test(url)){$('errLI').textContent='الرابط يجب أن يكون بصيغة linkedin.com/in/username';show($('errLI'),true);return}
     show($('results'),false);$('loadmsg').textContent='جاري محاولة الوصول المباشر للملف…';show($('loading'),true);
     try{
-      const res=await fetch(API_URL,{
-        method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,
+      const res=await smartFetch({model:'claude-sonnet-4-6',max_tokens:1000,
           tools:[{type:'web_search_20250305',name:'web_search'}],
-          messages:[{role:'user',content:'ابحث عن الملف المهني العام في هذا الرابط واجمع ما يظهر منه ثم لخصه نصاً منظماً بأقسامه (العنوان، النبذة، الخبرات، المهارات) بلا أي تعليق: '+url+'\nإن لم تستطع الوصول للمحتوى إطلاقاً أجب بكلمة واحدة: BLOCKED'}]
-        })
-      });
+          messages:[{role:'user',content:'ابحث عن الملف المهني العام في هذا الرابط واجمع ما يظهر منه ثم لخصه نصاً منظماً بأقسامه (العنوان، النبذة، الخبرات، المهارات) بلا أي تعليق: '+url+'\nإن لم تستطع الوصول للمحتوى إطلاقاً أجب بكلمة واحدة: BLOCKED'}]});
       const data=await res.json();
       if(data.error)throw new Error('API: '+(data.error.message||''));
       const text=(data.content||[]).filter(i=>i.type==='text').map(i=>i.text).join('\n');

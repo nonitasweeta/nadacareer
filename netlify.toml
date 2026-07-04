@@ -1,0 +1,18 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/checker"
+  to = "/checker.html"
+  status = 200
+
+[[redirects]]
+  from = "/checker-netlify.html"
+  to = "/checker.html"
+  status = 301
+
+[[redirects]]
+  from = "/index-netlify.html"
+  to = "/"
+  status = 301
