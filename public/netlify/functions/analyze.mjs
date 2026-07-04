@@ -46,4 +46,4 @@ export default async (req) => {
   }
 };
 
-export const config = { path: "/api/analyze" };
+// المسار الافتراضي: /.netlify/functions/analyze — مضمون في كل حسابات Netlify
